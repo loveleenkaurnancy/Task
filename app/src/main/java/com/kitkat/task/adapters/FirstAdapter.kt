@@ -54,10 +54,6 @@ class FirstAdapter(
 
             }
 
-            var a = mValues
-            Log.e("dvnd", "jdvjdv")
-
-//            notifyDataSetChanged()
 
             (mContext as MainActivity).leftHolder(position, item.number!!.toInt())
 

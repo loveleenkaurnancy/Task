@@ -11,6 +11,8 @@ import com.kitkat.task.adapters.SecondAdapter
 import com.kitkat.task.model.ItemModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.FieldPosition
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,10 +24,8 @@ class MainActivity : AppCompatActivity() {
     val arrayList1 = ArrayList<ItemModel>()
     val arrayList2 = ArrayList<ItemModel>()
 
-    val selected_arrayList1 = ArrayList<ItemModel>()
-    val selected_arrayList2 = ArrayList<ItemModel>()
-
     val firstPositions = ArrayList<Int>()
+    val secondPositions = ArrayList<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,24 +52,44 @@ class MainActivity : AppCompatActivity() {
 
         move_right.setOnClickListener {
 
+            firstPositions.sortDescending()
+
+            for (i in 0 until firstPositions.size) {
+
+                arrayList1.removeAt(firstPositions[i])
+
+            }
+
+
             firstAdapter.notifyDataSetChanged()
             secondAdapter.notifyDataSetChanged()
 
+            firstPositions.clear()
 
         }
 
         move_left.setOnClickListener {
 
+            secondPositions.sortDescending()
+
+            for (i in 0 until secondPositions.size) {
+
+                arrayList2.removeAt(secondPositions[i])
+
+            }
+
             firstAdapter.notifyDataSetChanged()
             secondAdapter.notifyDataSetChanged()
+
+            secondPositions.clear()
 
         }
 
     }
 
-    public fun leftHolder(position: Int, number : Int) {
+    fun leftHolder(position: Int, number : Int) {
 
-        arrayList1.removeAt(position)
+        firstPositions.add(position)
 
         val itemModel = ItemModel()
         itemModel.number = number
@@ -79,9 +99,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    public fun rightHolder(position: Int, number : Int) {
+    fun rightHolder(position: Int, number : Int) {
 
-        arrayList2.removeAt(position)
+        secondPositions.add(position)
 
         val itemModel = ItemModel()
         itemModel.number = number
