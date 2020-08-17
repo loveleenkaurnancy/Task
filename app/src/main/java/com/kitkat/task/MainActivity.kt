@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
     val arrayList1 = ArrayList<ItemModel>()
     val arrayList2 = ArrayList<ItemModel>()
 
+    val selected_arrayList1 = ArrayList<ItemModel>()
+    val selected_arrayList2 = ArrayList<ItemModel>()
+
     val firstPositions = ArrayList<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -2,6 +2,7 @@ package com.kitkat.task.adapters
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -52,6 +53,11 @@ class FirstAdapter(
                 holder.ic_tick.visibility = View.INVISIBLE
 
             }
+
+            var a = mValues
+            Log.e("dvnd", "jdvjdv")
+
+//            notifyDataSetChanged()
 
             (mContext as MainActivity).leftHolder(position, item.number!!.toInt())
 
